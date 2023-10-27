@@ -1,7 +1,7 @@
 async function main() {
   const [deployer] = await ethers.getSigners();
 
-  const Token = await ethers.getContractFactory("Token");
+  const Token = await ethers.getContractFactory("Notes");
   const token = await Token.deploy();
   console.log("Token address:", token.address);
 }
