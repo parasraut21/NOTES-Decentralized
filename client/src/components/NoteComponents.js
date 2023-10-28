@@ -47,6 +47,7 @@ function NoteForm({ account, provider, contract }) {
 
 function NoteList({ account, contract }) {
   const [notes, setNotes] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleRetrieveNotes = async () => {
     if (!contract) {
@@ -54,33 +55,42 @@ function NoteList({ account, contract }) {
       return;
     }
 
+    setIsLoading(true); // Set loading state while retrieving notes.
+
     try {
       const retrievedNotes = await contract.retrieveNotes();
       setNotes(retrievedNotes.filter((note) => note !== ""));
+      if(retrievedNotes.filter((note) => note !== "") == 0){
+        setIsLoading(true);
+      }else{
+        setIsLoading(false);
+      }
     } catch (error) {
+      setIsLoading(true);
       console.error("Error retrieving notes:", error);
-    }
+    } 
   }
 
   return (
     <div className="bg-blue-200 p-4 rounded-lg max-w-md mx-auto">
-    <button
-      className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
-      onClick={handleRetrieveNotes}
-    >
-      Retrieve Notes
-    </button>
-    <div className="mt-4">
-      {notes.map((note, index) => (
-        <div
-          key={index}
-          className="bg-white rounded-lg p-4 my-2 border border-blue-400"
-        >
-          {note}
-        </div>
-      ))}
+      <button
+        className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
+        onClick={handleRetrieveNotes}
+        disabled={isLoading} // Disable the button during loading.
+      >
+        {isLoading ? "Loading..." : "Retrieve Notes"}
+      </button>
+      <div className="mt-4">
+        {notes.map((note, index) => (
+          <div
+            key={index}
+            className="bg-white rounded-lg p-4 my-2 border border-blue-400"
+          >
+            {note}
+          </div>
+        ))}
+      </div>
     </div>
-  </div>
   );
 }
 

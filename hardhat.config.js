@@ -16,4 +16,10 @@ module.exports = {
       accounts: [`0x${ROPSTEN_PRIVATE_KEY}`],
     },
   },
+  paths: {
+    sources: "./contracts",
+    tests: "./test",
+    cache: "./cache",
+    artifacts: "./client/src/artifacts",
+  },
 };
