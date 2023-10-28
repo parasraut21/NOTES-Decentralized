@@ -1,5 +1,8 @@
 ﻿# Decentralized Notes
 
+## Setup Project In Localhost
+- **Simply clone the URL, navigate to the client folder in the terminal (cd client), and launch the website by typing npm start to set up my repository on your localhost**
+
 ## Project Description
 
 - This project, developed by Paras Raut, is a simple Ethereum Decentralized Application (DApp) that showcases the power of Ethereum smart contracts and Ethers.js integration. The DApp allows users to store and retrieve messages on the Ethereum blockchain, demonstrating the core functionalities of a blockchain-based application.
@@ -55,6 +58,22 @@
 
 - You will see your notes on the screen after pressing the retrieve notes button.
   ![Screenshot 2023-10-28 154700](https://github.com/parasraut21/NOTES-Decentralized/assets/111653346/51e8696f-66d2-45ea-b705-9eb98eab7133)
+
+## Testing Demo
+- **These are a few test cases for the hardhat-based smart contract.**
+- 1. **Should allow a user to store a note:**
+This test verifies that the smart contract allows a user to store a note. It deploys the "Notes" contract, stores a test note from a user's address, and checks if the user's notes count increases by one.
+
+- 2. **Should allow a user to retrieve their notes:**
+This test ensures that the contract allows a user to retrieve their stored notes. It deploys the contract, stores two notes for a user, and then retrieves the notes for the same user to confirm they match the expected values.
+
+- 3. **Should not allow retrieving notes for an address with no notes:**
+This test checks that the contract does not return any notes for an address with no stored notes. It deploys the contract, attempts to retrieve notes for a user without any stored notes, and confirms that an empty array is returned.
+
+- 4. **Should store and retrieve a large number of notes:**
+This test validates the contract's ability to handle a large number of stored notes. It deploys the contract, stores a significant number of identical notes from a user, and ensures that all the stored notes are successfully retrieved.
+
+![Screenshot (213)](https://github.com/parasraut21/NOTES-Decentralized/assets/111653346/71f153b5-1000-4fba-8109-da3b4ab1e27a)
 
 
 ## Smart Contract
