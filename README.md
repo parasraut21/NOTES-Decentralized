@@ -36,6 +36,7 @@
   
 - **Web Framework**: 
     - **React.js** - Powers the frontend of our platform, ensuring a reactive, efficient, and modular UI.
+    - **HardHat**
 
 - **UI Styling**: 
     - **Flowbite css** - A utility-first CSS framework we use for rapid UI development.
